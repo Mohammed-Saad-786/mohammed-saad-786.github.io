@@ -1,0 +1,3176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Saad's Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #3b82f6;
+    }
+
+    nav .logo {
+      position: absolute;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #FF9933 0%, #FF9933 26%, #FFFFFF 26%, #FFFFFF 74%, #138808 74%, #138808 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+      z-index: 1001;
+      min-width: 100px;
+    }
+
+    nav .logo span i {
+      font-style: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #3b82f6;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3b82f6;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Navigation Button */
+    .nav-btn {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24) !important;
+      color: white !important;
+      padding: 0.6rem 1.8rem !important;
+      border-radius: 25px !important;
+      transition: all 0.3s ease !important;
+      border: none !important;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;
+      font-weight: 600 !important;
+    }
+
+    .nav-btn:hover {
+      background: linear-gradient(45deg, #ee5a24, #ff6b6b) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4) !important;
+      color: white !important;
+    }
+
+    .nav-btn::after {
+      display: none !important;
+    }
+
+    /* Right Corner Text Logo */
+    .nav-corner-logo {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .corner-text-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(45deg, #5c6bc0, #8257a0);
+      color: white;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .corner-text-logo:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: #2c3e50;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    #home .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-content {
+      color: white;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      min-height: 4.2rem;
+    }
+
+    .hero-content h1 span {
+      color: #ffffff;
+      position: relative;
+    }
+
+    .hero-content h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.5s forwards;
+      min-height: 2.5em;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 500px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.8s forwards;
+    }
+
+    /* Social Links */
+    .social-links-home {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease 1.1s forwards;
+    }
+
+    .social-links-home a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .social-links-home a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-links-home i {
+      font-size: 1.2rem;
+    }
+
+    /* Hero Buttons */
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeInUp 1s ease 1.4s forwards;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Image */
+    .hero-image {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeInRight 1s ease 1s forwards;
+    }
+
+    .image-wrapper {
+      width: 100%;
+      max-width: 350px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      border: 5px solid #8b5cf6;
+      animation: float-image 6s ease-in-out infinite;
+      transition: all 0.3s ease;
+    }
+
+    .image-wrapper:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: #6366f1;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      transform: scale(1.18);
+      /* Zooms in to perfectly match the crop box */
+      transition: transform 0.3s ease;
+    }
+
+    .image-wrapper:hover img {
+      transform: scale(1.23);
+    }
+
+    @keyframes float-image {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: float 20s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      100% {
+        transform: translate(-50px, -50px) rotate(360deg);
+      }
+    }
+
+    /* About Section */
+    #about {
+      padding: 100px 0;
+      background: #f8fafc;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(45deg, #5c6bc0, #8257a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about-text h4 {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    .about-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.02);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Experience Section */
+    #experience {
+      padding: 100px 0;
+      background: white;
+    }
+
+    #experience h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, #5c6bc0, #8257a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .experience-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .experience-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #3b82f6;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .experience-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .experience-header h3 {
+      color: #1e293b;
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    .company {
+      color: #3b82f6;
+      font-weight: 600;
+      font-size: 1rem;
+      flex-basis: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .duration {
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .experience-details {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .experience-details li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .experience-details li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #3b82f6;
+      font-weight: bold;
+    }
+
+    .tech-used {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tech-used .tech-tag {
+      background: #f1f5f9;
+      color: #475569;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+    }
+
+    .certificate-view.exp-btn {
+      display: inline-flex;
+      /* 🔹 prevents stretching */
+      padding: 6px 14px;
+      /* 🔹 smaller size */
+      font-size: 13px;
+      border-radius: 8px;
+      width: fit-content;
+      /* 🔹 key fix */
+      margin-top: 1.5rem;
+    }
+
+    /* CSS Text Logos */
+    .css-logo-infosys {
+      display: flex;
+      flex-direction: column;
+      line-height: 0.9;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 1.5rem;
+    }
+
+    .infosys-top {
+      color: #007cc3;
+      font-size: 2.2rem;
+      font-weight: bold;
+      letter-spacing: -1px;
+    }
+
+    .infosys-bottom {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: -1.5px;
+      background: linear-gradient(to bottom, #007cc3 48%, #e24e42 48%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: -2px;
+    }
+
+    .css-logo-edunet {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 1.5rem;
+    }
+
+    .edunet-top {
+      font-size: 2.8rem;
+      letter-spacing: -1.5px;
+    }
+
+    .edunet-edu {
+      color: #1e3a6a;
+    }
+
+    .edunet-net {
+      color: #8b1c1c;
+    }
+
+    .edunet-bottom {
+      color: #94a3b8;
+      font-size: 1.4rem;
+      margin-top: -8px;
+      letter-spacing: 0.5px;
+    }
+
+    .edunet-collab {
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    .css-logo-vi {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.5rem;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1;
+    }
+
+    .vi-icon {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #e60000;
+      display: inline-block;
+    }
+
+    .vi-dot {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background-color: #ffcc00;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 0px;
+      right: -2px;
+    }
+
+    .vi-text {
+      color: #e60000;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 5px;
+      letter-spacing: -0.5px;
+    }
+
+    .css-logo-gms {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .gms-img-logo {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .css-logo-narayana {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .narayana-circle {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 3px solid #1a75b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f37021;
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: #f8fafc;
+    }
+
+    .narayana-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .narayana-text-sub {
+      color: #1a75b8;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .narayana-text-main {
+      color: #1a75b8;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-top: -2px;
+    }
+
+    .css-logo-mlrs {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .mlrs-img-logo {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+      margin-left: -12px;
+    }
+
+    /* Education Section */
+    #education {
+      padding: 100px 0;
+      background: #f8fafc;
+    }
+
+    #education h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, #5c6bc0, #8257a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .education-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .education-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #10b981;
+    }
+
+    .education-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .education-header h3 {
+      color: #1e293b;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .institute {
+      color: #64748b;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .grade {
+      color: #059669;
+      font-weight: 600;
+    }
+
+    /* Certifications Section */
+    #certifications {
+      padding: 100px 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: white;
+    }
+
+    #certifications h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, #5c6bc0, #8257a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .group-label {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #0077ff;
+      border-bottom: 3px solid #0077ff;
+      display: block;
+      padding-bottom: 6px;
+    }
+
+    .certifications-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .certification-group {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .certification-item {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 16px;
+      border-left: 5px solid #8b5cf6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+    }
+
+    .certification-item:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+      border-left-color: #6366f1;
+    }
+
+    .certification-content {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .certification-content h3 {
+      color: #1e293b;
+      font-size: 1.25rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .certification-item:hover .certification-content h3 {
+      color: #3b82f6;
+    }
+
+    .issuer {
+      color: #6b7280;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      display: block;
+      font-size: 1rem;
+    }
+
+    .date {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      color: white;
+      padding: 0.45rem 1rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .certification-item:hover .date {
+      background: linear-gradient(135deg, #5c6bc0, #8257a0);
+    }
+
+    .certificate-view {
+      background: linear-gradient(135deg, #5c6bc0, #8257a0);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      box-shadow: 0 5px 18px rgba(92, 107, 192, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .certificate-view:hover {
+      background: linear-gradient(135deg, #4b5aab, #714691);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(92, 107, 192, 0.4);
+      color: white;
+    }
+
+    /* Skills Section */
+    #skills {
+      padding: 100px 0;
+      background: #f8fafc;
+    }
+
+    #skills h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, #5c6bc0, #8257a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      border: 1px solid #e2e8f0;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill-category h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-category h3 i {
+      color: #3b82f6;
+    }
+
+    .skill-list-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .skill-list-bars p {
+      margin: 10px 0 5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .bar {
+      background: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 12px;
+      margin-bottom: 5px;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(45deg, #5c6bc0, #8257a0);
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
+
+    /* Projects Section */
+    #projects {
+      padding: 100px 0;
+      background: #f8fafc;
+    }
+
+    #projects h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, #5c6bc0, #8257a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .full-width-project {
+      grid-column: 1 / -1;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #e2e8f0;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-image {
+      height: 270px;
+      /* controls short banner height */
+      overflow: hidden;
+    }
+
+
+
+
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 🔥 ADD THIS EXACTLY HERE */
+    .project-card .github-link {
+      opacity: 0;
+    }
+
+    .project-card:hover .github-link {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+
+      color: white;
+      font-size: 28px;
+
+      opacity: 1;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* fills entire card */
+      object-position: top;
+      /* 🔥 KEY FIX → shows top part instead of random crop */
+    }
+
+    .learnmate-img {
+      height: 340px;
+    }
+
+    .bragboard-img {
+      height: 340px;
+      /* slightly bigger than 270px */
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    .project-content p {
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: #e2e8f0;
+      color: #475569;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+      background: #3b82f6;
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .project-links a:hover {
+      color: #1d4ed8;
+    }
+
+    .view-all-projects {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .view-all-btn {
+      padding: 12px 28px;
+      font-size: 1rem;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 100px 0;
+      background: white;
+    }
+
+    #contact h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, #5c6bc0, #8257a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .contact-info h2 {
+      text-align: left;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+      color: #64748b;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-item i {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(45deg, #5c6bc0, #8257a0);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .contact-item h4 {
+      color: #1e293b;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-item p {
+      color: #64748b;
+      margin: 0;
+    }
+
+    .contact-form {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #1e293b;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    #formMessages {
+      margin-bottom: 20px;
+    }
+
+    .message {
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-left: 4px solid;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      border-left-color: #28a745;
+    }
+
+    .error-message {
+      background: #f8d7da;
+      color: #721c24;
+      border-left-color: #dc3545;
+    }
+
+    .btn-loading {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .btn:disabled {
+      background-color: #6c757d;
+      cursor: not-allowed;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: #1e293b;
+      color: white;
+      padding: 1.5rem 0 0.8rem;
+      margin-top: 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-content .logo {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Cursor ONLY for H1 */
+    .typing-text {
+      border-right: 3px solid #ff6b6b;
+      animation: blink 1s infinite;
+      padding-right: 5px;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        border-color: transparent;
+      }
+
+      50% {
+        border-color: #ff6b6b;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      #home .container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        gap: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.8rem 0;
+      }
+
+      .nav-btn {
+        margin: 1rem 0 0 0 !important;
+        padding: 1rem 2rem !important;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-corner-logo {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content h2 {
+        font-size: 1.2rem;
+      }
+
+      #about h2,
+      #experience h2,
+      #education h2,
+      #certifications h2,
+      #skills h2,
+      #projects h2,
+      #contact h2 {
+        font-size: 2.5rem;
+      }
+
+      .projects-container {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image img,
+      .about-image img {
+        max-width: 300px;
+        height: 300px;
+      }
+
+      .certification-group {
+        grid-template-columns: 1fr;
+      }
+
+      .certification-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .certificate-view {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.5rem;
+      }
+
+      .social-links-home {
+        justify-content: center;
+        gap: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 200px;
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .social-links-home gap: 0.6rem;
+
+      .social-links-home a {
+        width: 42px;
+        height: 42px;
+      }
+    }
+
+    /* Chatbot Widget Styles */
+    .chatbot-widget-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 10000;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .chatbot-toggle-btn {
+      width: 70px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      border: none;
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+      cursor: pointer;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+    }
+
+    .chatbot-toggle-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5);
+    }
+
+    .chatbot-window {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 500px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-origin: bottom right;
+    }
+
+    .chatbot-window.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    .chatbot-header {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      padding: 1.2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chatbot-header-info {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .chatbot-avatar {
+      width: 40px;
+      height: 40px;
+      background: white;
+      color: #3b82f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .chatbot-header h4 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .online-status {
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.9;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 5px #10b981;
+    }
+
+    .close-chat-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .close-chat-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      scroll-behavior: smooth;
+    }
+
+    .chatbot-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chatbot-messages::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    .chat-msg {
+      max-width: 85%;
+      padding: 0.8rem 1rem;
+      border-radius: 18px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      animation: chatFadeIn 0.3s ease forwards;
+      word-wrap: break-word;
+    }
+
+    @keyframes chatFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chat-msg.bot {
+      background: #f1f5f9;
+      color: #334155;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-msg.user {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
+    }
+
+    .chatbot-quick-actions {
+      padding: 0.5rem 1rem;
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .chatbot-quick-actions::-webkit-scrollbar {
+      display: none;
+    }
+
+    .quick-action-btn {
+      white-space: nowrap;
+      padding: 0.4rem 0.8rem;
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .quick-action-btn:hover {
+      background: #f8fafc;
+      border-color: #3b82f6;
+      color: #3b82f6;
+    }
+
+    .chatbot-input-area {
+      padding: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      background: white;
+      border-top: 1px solid #f1f5f9;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .chatbot-input-area input {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      outline: none;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+
+    .chatbot-input-area input:focus {
+      border-color: #3b82f6;
+    }
+
+    .chatbot-send-btn {
+      width: 42px;
+      height: 42px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .chatbot-send-btn:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 0.5rem 1rem;
+      background: #f1f5f9;
+      border-radius: 18px;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      width: fit-content;
+    }
+
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      background: #94a3b8;
+      border-radius: 50%;
+      animation: typingBounce 1.4s infinite ease-in-out both;
+    }
+
+    .typing-dot:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+
+    @keyframes typingBounce {
+
+      0%,
+      80%,
+      100% {
+        transform: scale(0);
+      }
+
+      40% {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .chatbot-window {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        bottom: 0 !important;
+      }
+
+      .chatbot-toggle-btn {
+        bottom: 1rem;
+        right: 1rem;
+        z-index: 10001;
+      }
+
+      .chatbot-window.active~.chatbot-toggle-btn {
+        display: none;
+      }
+    }
+
+    /* Coming Soon Post-Credit Scene Style */
+    .coming-soon-section {
+      margin-top: 4rem;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .coming-soon-text {
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      font-weight: 800;
+      font-style: italic;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      opacity: 0;
+      animation: cinematic-fade 2s ease-in-out 0.5s forwards;
+      background: linear-gradient(90deg, #9b2cdd, #4b4b9b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @keyframes cinematic-fade {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo"><span id="headerLogoText"><i>Mohammed</i></span></div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact" class="nav-btn">Contact</a></li>
+        </ul>
+
+        <!-- Right Corner Text Logo -->
+        <div class="nav-corner-logo">
+          <div class="corner-text-logo">MS</div>
+        </div>
+
+        <div class="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Hi, I'm <span>Mohammed Saad</span></h1>
+        <h2><span> Computer Science Student</span></h2>
+        <p>
+          Passionate about emerging technologies, especially Artificial Intelligence. Building intelligent solutions and
+          cutting-edge web applications.
+        </p>
+        <div>
+          <div>
+            <div class="social-links-home">
+              <a href="https://github.com/Mohammed-Saad-786" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/mohammed-saad-tech" target="_blank"><i
+                  class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.facebook.com/share/1CtLjiUfZw/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://t.me/Mohammed_Saad_786" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+            </div>
+          </div>
+          <div class="hero-btns">
+            <a href="#projects" class="btn">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-wrapper">
+          <img src="images/pencil.png" alt="Mohammed Saad" />
+        </div>
+      </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <h4>
+            Hello! I'm Mohammed Saad, an undergraduate at Marri Laxman Reddy Institute of Technology and Management,
+            passionate about building intelligent web applications and AI solutions.
+          </h4>
+          <h4>
+            I have foundational skills in Java, Python, MySQL, and digital marketing. I enjoy solving complex problems
+            and continuously learning new skills to stay at the forefront of technology.
+          </h4>
+          <h4>
+            When I'm not coding, I love exploring new tech trends and engaging with the developer community. Let's
+            connect and create something amazing together!
+          </h4>
+          <a href="resume.pdf" download="Mohammed_Saad_Resume.pdf" class="btn">Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2>Work Experience & Internships</h2>
+      <div class="experience-container">
+
+        <!-- Internship 1 -->
+        <div class="experience-item">
+          <div class="css-logo-vi">
+            <div class="vi-icon">V<span style="display:inline-block; position:relative;">I<span
+                  class="vi-dot"></span></span></div>
+            <div class="vi-text">Vodafone Idea Foundation</div>
+          </div>
+          <div class="experience-header">
+            <h3>Cybersecurity & GenAI Intern</h3>
+            <span class="company">Edunet Foundation (VOIS & Vodafone CSR) | Remote</span>
+            <span class="duration">Dec 2025 - Jan 2026</span>
+          </div>
+          <ul class="experience-details">
+            <li>Engineered an AI-driven Network Intrusion Detection System (NIDS) using Random Forest to neutralize
+              real-time cyber threats.</li>
+            <li>Architected a robust data pipeline using the CIC-IDS2017 dataset for advanced traffic simulation and
+              model training.</li>
+            <li>Deployed an interactive Streamlit dashboard for dynamic threat visualization and real-time network
+              monitoring.</li>
+            <li>Leveraged Python, Scikit-learn, Pandas, and NumPy to optimize machine learning models and data analysis
+              workflows.</li>
+            <li>Successfully completed this highly competitive AICTE-approved program under the VOIS for Tech
+              initiative.</li>
+          </ul>
+          <div class="tech-used">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Streamlit</span>
+            <span class="tech-tag">Scikit-learn</span>
+            <span class="tech-tag">Random Forest</span>
+            <span class="tech-tag">GenAI</span>
+          </div>
+          <a href="images/vois.jfif" target="_blank" class="certificate-view exp-btn">View Certificate</a>
+        </div>
+
+        <!-- Internship 2 -->
+        <div class="experience-item">
+          <div class="css-logo-infosys">
+            <span class="infosys-top">Infosys</span>
+            <span class="infosys-bottom">Springboard</span>
+          </div>
+          <div class="experience-header">
+            <h3>Python Full-Stack Intern</h3>
+            <span class="company">Infosys Springboard | Remote</span>
+            <span class="duration">Nov 2025 - Jan 2026</span>
+          </div>
+          <ul class="experience-details">
+            <li>Built "BragBoard", a full-stack Employee Recognition Platform using React.js and FastAPI to
+              significantly boost workplace engagement.</li>
+            <li>Engineered a dynamic social feed featuring interactive shoutouts, multimedia attachments, and a
+              multi-reaction engagement system.</li>
+            <li>Implemented a robust security layer with secure authentication, bcrypt password hashing, and user role
+              management.</li>
+            <li>Designed an intelligent "Smart Explorer" filtering system and admin dashboard to track real-time
+              analytics and top contributors.</li>
+            <li>Optimized backend operations using SQLAlchemy and integrated automated PDF report generation for
+              platform insights.</li>
+          </ul>
+          <div class="tech-used">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">SQLAlchemy</span>
+            <span class="tech-tag">Tailwind CSS</span>
+          </div>
+          <a href="images/sp_page-0001.jpg" target="_blank" class="certificate-view exp-btn">View Certificate</a>
+        </div>
+
+        <!-- Internship 3 -->
+        <div class="experience-item">
+          <div class="css-logo-edunet">
+            <span class="edunet-top"><span class="edunet-edu">edu</span><span class="edunet-net">net</span></span>
+            <span class="edunet-bottom">foundation</span>
+            <span class="edunet-collab">In collaboration with IBM SkillsBuild</span>
+          </div>
+          <div class="experience-header">
+            <h3>Employability Skills & Digital Literacy with AI</h3>
+            <span class="company">Edunet Foundation | Remote</span>
+            <span class="duration">Nov 2025 - Dec 2025</span>
+          </div>
+          <ul class="experience-details">
+            <li>Mastered prompt engineering using advanced AI tools like Claude for high-efficiency content creation and
+              communication.</li>
+            <li>Crafted compelling, ATS-optimized professional branding assets, including tailored resumes and
+              industry-standard cover letters.</li>
+            <li>Designed dynamic video resumes and professional presentations using modern platforms like Descript and
+              Loom.</li>
+            <li>Sharpened technical, behavioral, and HR interview skills through rigorous mock interviews and peer
+              evaluations.</li>
+            <li>Integrated cutting-edge generative AI workflows to significantly boost daily productivity and digital
+              literacy.</li>
+          </ul>
+          <div class="tech-used">
+            <span class="tech-tag">Claude AI</span>
+            <span class="tech-tag">Descript</span>
+            <span class="tech-tag">Loom</span>
+            <span class="tech-tag">Prompt Engineering</span>
+          </div>
+          <a href="images/digital.jfif" target="_blank" class="certificate-view exp-btn">View Certificate</a>
+        </div>
+
+        <!-- Internship 4 -->
+        <div class="experience-item">
+          <div class="css-logo-edunet">
+            <span class="edunet-top"><span class="edunet-edu">edu</span><span class="edunet-net">net</span></span>
+            <span class="edunet-bottom">foundation</span>
+            <span class="edunet-collab">In collaboration with IBM SkillsBuild</span>
+          </div>
+          <div class="experience-header">
+            <h3>AI & Cloud Technology Intern</h3>
+            <span class="company">Edunet Foundation | Remote</span>
+            <span class="duration">Jul 2025 - Aug 2025</span>
+          </div>
+          <ul class="experience-details">
+            <li>Developed "LearnMate AI", an intelligent career mentor generating highly personalized, adaptive learning
+              roadmaps.</li>
+            <li>Integrated Groq LLM and Gradio to build a seamless, interactive user interface for AI-driven educational
+              coaching.</li>
+            <li>Deployed cutting-edge Generative AI and cloud computing solutions to tackle real-world educational
+              challenges.</li>
+            <li>Significantly enhanced user engagement through dynamic, AI-tailored progression tracking and mentorship.
+            </li>
+            <li>Earned specialized certifications in Artificial Intelligence, Cloud Architectures, and
+              Retrieval-Augmented Generation (RAG).</li>
+          </ul>
+          <div class="tech-used">
+            <span class="tech-tag">Groq LLM</span>
+            <span class="tech-tag">Gradio</span>
+            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">Cloud Computing</span>
+            <span class="tech-tag">Generative AI</span>
+          </div>
+          <a href="images/AI.jfif" target="_blank" class="certificate-view exp-btn">View Certificate</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <h2>Education</h2>
+      <div class="education-container">
+        <div class="education-item">
+          <div class="css-logo-mlrs">
+            <img src="images/mlrs2.jpg" alt="MLRS Logo" class="mlrs-img-logo">
+          </div>
+          <div class="education-header">
+            <h3>Bachelor of Technology in Computer Science & Engineering</h3>
+            <span class="duration">2023 - 2027</span>
+          </div>
+          <p class="institute">Marri Laxman Reddy Institute of Technology and Management |
+            (Medchal-Malkajgiri,Telangana)</p>
+          <p class="grade">Current CGPA: 8.99</p>
+        </div>
+
+        <div class="education-item">
+          <div class="css-logo-narayana">
+            <div class="narayana-circle">N</div>
+            <div class="narayana-text">
+              <span class="narayana-text-sub">SRAMAYEVA JAYATHE</span>
+              <span class="narayana-text-main">THE NARAYANA GROUP</span>
+            </div>
+          </div>
+          <div class="education-header">
+            <h3>Secondary Education (Intermediate|MPC)</h3>
+            <span class="duration">2021 - 2023</span>
+          </div>
+          <p class="institute">Narayana Junior College | (Chandanagar,Telangana)</p>
+          <p class="grade">Academic Percentage: 95%</p>
+        </div>
+
+        <div class="education-item">
+          <div class="css-logo-gms">
+            <img src="images/gms.jfif" alt="GMS Logo" class="gms-img-logo">
+          </div>
+          <div class="education-header">
+            <h3>Schooling</h3>
+            <span class="duration">2020 - 2021</span>
+          </div>
+          <p class="institute">Gowtham Model School | (Chandanagar,Telangana)</p>
+          <p class="grade">Academic Percentage: 100%</p>
+        </div>
+      </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications">
+    <div class="container">
+      <h2>Certifications</h2>
+
+      <div class="certifications-container">
+
+        <div class="group-label">My Certifications</div>
+        <div class="certification-group">
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Oracle Cloud Infrastructure 2025 Certified Generative AI Professional</h3>
+              <p class="issuer">Oracle</p>
+              <span class="date">Completed</span>
+            </div>
+            <a href="images/eCertificate_page-0001.jpg" target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Pearson MePro – English Communication Skills (Levels 1–10)</h3>
+              <p class="issuer">Pearson</p>
+              <span class="date">Completed</span>
+            </div>
+            <a href="images/10.jfif" target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Network Technician Career Path</h3>
+              <p class="issuer">Cisco Networking Academy</p>
+              <span class="date">Completed</span>
+            </div>
+            <a href="images/ntpc_page-0001.jpg" target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Power BI Micro Course</h3>
+              <p class="issuer">Skill Course</p>
+              <span class="date">Completed</span>
+            </div>
+            <a href="images/saaspower.jfif" target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+          </div>
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Front End Development - HTML</h3>
+              <p class="issuer">Great Learning</p>
+              <span class="date">Completed</span>
+            </div>
+            <a href="images/front_page.jpg" target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+            <a href="https://www.mygreatlearning.com/certificate/AJNYBZDG?referrer_code=GLH-Y6MIKMYMG" target="_blank"
+              class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> Verification Link
+            </a>
+          </div>
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Front End Development - CSS</h3>
+              <p class="issuer">Great Learning</p>
+              <span class="date">Completed</span>
+            </div>
+            <a href="images/css.jpg" target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+            <a href="https://www.mygreatlearning.com/certificate/CHZZDUDL?referrer_code=GLH-Y6MIKMYMG" target="_blank"
+              class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> Verification Link
+            </a>
+          </div>
+
+        </div>
+
+        <div class="group-label">Digital Badges</div>
+        <div class="certification-group">
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Artificial Intelligence Fundamentals</h3>
+              <p class="issuer">IBM SkillsBuild</p>
+              <span class="date">Credly Badge</span>
+            </div>
+            <a href="https://www.credly.com/badges/ac9ed5ac-642a-42db-93a3-14ad0c28fb94/public_url" target="_blank"
+              class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Badge
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>AWS Academy Graduate - AWS Academy Machine Learning Foundations</h3>
+              <p class="issuer">Amazon Web Services (AWS)</p>
+              <span class="date">Credly Badge</span>
+            </div>
+            <a href="https://www.credly.com/badges/a85f0606-704b-4788-bc7e-107629bb4f08/linked_in_profile"
+              target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Badge
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>AWS Academy Graduate - AWS Academy Cloud Foundations</h3>
+              <p class="issuer">Amazon Web Services (AWS)</p>
+              <span class="date">Credly Badge</span>
+            </div>
+            <a href="https://www.credly.com/badges/249a45f7-d245-4d02-a1eb-0342c9875db0/linked_in_profile"
+              target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Badge
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Career Management Essentials</h3>
+              <p class="issuer">IBM SkillsBuild</p>
+              <span class="date">Credly Badge</span>
+            </div>
+            <a href="https://www.credly.com/badges/28966b4a-ec11-4192-976e-2347ece10c6e/public_url" target="_blank"
+              class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Badge
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Journey to Cloud: Envisioning Your Solution</h3>
+              <p class="issuer">IBM SkillsBuild</p>
+              <span class="date">Credly Badge</span>
+            </div>
+            <a href="https://www.credly.com/badges/f9b2bcac-a26c-4a9c-8252-fbb7700455d7/public_url" target="_blank"
+              class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Badge
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Oracle Generative AI</h3>
+              <p class="issuer">Oracle</p>
+              <span class="date">Oracle CertView Badge</span>
+            </div>
+            <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=5C917FA2EC332DA7C59BD611B53665CEB1BA3198E546629846FAC672CD7056D4"
+              target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Badge
+            </a>
+          </div>
+
+        </div>
+
+        <div class="group-label">Other Internship Certifications</div>
+        <div class="certification-group">
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>ServiceNow Virtual Internship</h3>
+              <p class="issuer">The SmartBridge</p>
+              <span class="date">Completed</span>
+            </div>
+            <a href="images/service.jfif" target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>AWS Virtual Internship</h3>
+              <p class="issuer">EduSkills</p>
+              <span class="date">Completed</span>
+            </div>
+            <a href="images/aws_page-0001.jpg" target="_blank" class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <div class="certification-content">
+              <h3>Prompt Engineering for AI Virtual Internship</h3>
+              <p class="issuer">EduSkills</p>
+              <span class="date">Completed</span>
+            </div>
+            <a href="images/Prompt Engineering for AI  Virtual Internship (1)_page-0001.jpg" target="_blank"
+              class="certificate-view">
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills & Technologies</h2>
+      <div class="skills-container">
+
+        <!-- Frontend -->
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-code"></i> Frontend</h3>
+          <div class="skill-list-bars">
+            <p><i class="fa-brands fa-html5"></i> HTML</p>
+            <div class="bar"><span style="width:80%"></span></div>
+            <p><i class="fa-brands fa-css3-alt"></i> CSS</p>
+            <div class="bar"><span style="width:80%"></span></div>
+            <p><i class="fa-brands fa-react"></i> React</p>
+            <div class="bar"><span style="width:75%"></span></div>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-server"></i> Backend</h3>
+          <div class="skill-list-bars">
+            <p><i class="fa-brands fa-node-js"></i> Node.js</p>
+            <div class="bar"><span style="width:60%"></span></div>
+            <p><i class="fa-solid fa-bolt"></i> FastAPI</p>
+            <div class="bar"><span style="width:80%"></span></div>
+          </div>
+        </div>
+
+        <!-- Programming -->
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-laptop-code"></i> Programming</h3>
+          <div class="skill-list-bars">
+            <p>C</p>
+            <div class="bar"><span style="width:80%"></span></div>
+            <p><i class="fa-brands fa-java"></i> Java</p>
+            <div class="bar"><span style="width:85%"></span></div>
+            <p><i class="fa-brands fa-python"></i> Python</p>
+            <div class="bar"><span style="width:90%"></span></div>
+            <p>R</p>
+            <div class="bar"><span style="width:40%"></span></div>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-database"></i> Databases</h3>
+          <div class="skill-list-bars">
+            <p>MySQL</p>
+            <div class="bar"><span style="width:85%"></span></div>
+            <p>MongoDB</p>
+            <div class="bar"><span style="width:60%"></span></div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools</h3>
+          <div class="skill-list-bars">
+            <p>MS Power BI</p>
+            <div class="bar"><span style="width:70%"></span></div>
+            <p>Excel</p>
+            <div class="bar"><span style="width:80%"></span></div>
+            <p><i class="fa-solid fa-code"></i> VS Code</p>
+            <div class="bar"><span style="width:90%"></span></div>
+            <p><i class="fa-brands fa-github"></i> GitHub</p>
+            <div class="bar"><span style="width:90%"></span></div>
+            <p>Jupyter Notebook</p>
+            <div class="bar"><span style="width:60%"></span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="projects-container">
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/crm2.png" alt="Automated File Organizer" />
+          </div>
+          <div class="project-content">
+            <h3>AI-Driven Customer Relationship Management (CRM) Engine
+            </h3>
+            <p>
+              A modern, full-stack CRM solution built with FastAPI and React designed to automate lead prioritization
+              and streamline sales workflows.The CRM Engine is a high-performance application that manages the lifecycle
+              of a sales lead from initial contact to conversion. It replaces static spreadsheets with a dynamic,
+              data-driven dashboard that calculates lead engagement in real-time.
+            </p>
+            <div class="project-tech">
+              <div class="tech-tag">React.js</div>
+              <div class="tech-tag">FastAPI</div>
+              <div class="tech-tag">Tailwind CSS</div>
+              <div class="tech-tag">Python</div>
+              <div class="tech-tag">SQLite</div>
+              <div class="tech-tag">SQLAlchemy</div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Mohammed-Saad-786/Customer_Relationship_Management_System" target="_blank"
+                class="github-link">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image learnmate-img">
+
+
+            <img src="images/2.png" alt="LearnMate AI Coach">
+
+            <!-- GitHub Icon -->
+            <a href="https://github.com/Mohammed-Saad-786/learnmate-ai-coach.git" target="_blank" class="github-link">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+
+          <div class="project-content">
+            <h3>LearnMate AI Coach</h3>
+
+            <p>
+              LearnMate AI Coach is an AI-powered career mentoring assistant that generates structured
+              learning roadmaps for tech domains. It helps students and beginners identify the right
+              learning path, tools, and courses based on their current skill level using LLM-powered guidance.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">LLM</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">Gradio</span>
+              <span class="tech-tag">AI</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://mohd-saad-learnmate-ai-coach.hf.space/">🔗 Watch Demo</a>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="project-card">
+
+          <!-- IMAGE SECTION -->
+          <div class="project-image bragboard-img">
+            <img src="images/123.jpg" alt="BragBoard Project">
+
+            <!-- GitHub Icon -->
+            <a href="https://github.com/Mohammed-Saad-786/BragBoard.git" target="_blank" class="github-link">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+
+          <!-- CONTENT -->
+          <div class="project-content">
+            <h3>BragBoard - Peer Recognition Platform</h3>
+
+            <p>
+              BragBoard is an internal employee engagement platform designed to foster a culture of appreciation.
+              It enables team members to send peer-to-peer "shoutouts", recognizing achievements and contributions,
+              and promoting a positive workplace environment.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">SQLAlchemy</span>
+              <span class="tech-tag">JWT Auth</span>
+              <span class="tech-tag">Pydantic</span>
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="view-all-projects">
+        <a href="https://github.com/Mohammed-Saad-786" target="_blank" class="btn view-all-btn">
+          View All Projects
+        </a>
+      </div>
+
+      <!-- Post-Credit Scene: Coming Soon -->
+      <div class="coming-soon-section">
+        <p class="coming-soon-text">
+          RAG, Agentic AI, Autonomous Agents Coming soon. . .
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2>Let's Work Together</h2>
+          <p>
+            I'm currently available for freelance work and internships. Feel free to reach out if you're looking for a
+            developer, have a question, or just want to connect.
+          </p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>555mohammedsaad@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Phone</h4>
+                <p>+91 9963058044</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Location</h4>
+                <p>H-No: 2-1/1/B, Chandanagar, Serilingampally, Hyderabad, Telangana, 500050</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <div id="formMessages"></div>
+
+          <form id="contactForm" action="https://formspree.io/f/mgodpqzv" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Chatbot Widget -->
+  <div class="chatbot-widget-container">
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <div class="chatbot-avatar"><i class="fas fa-robot"></i></div>
+          <div>
+            <h4>Ask Saad AI</h4>
+            <span class="online-status"><span class="status-dot"></span> Online</span>
+          </div>
+        </div>
+        <button class="close-chat-btn" id="closeChatBtn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chatbot-messages" id="chatbotMessages">
+        <!-- Messages will appear here -->
+      </div>
+      <div class="chatbot-quick-actions" id="chatbotQuickActions">
+        <button class="quick-action-btn">Skills</button>
+        <button class="quick-action-btn">Projects</button>
+        <button class="quick-action-btn">Internships</button>
+        <button class="quick-action-btn">Contact</button>
+        <button class="quick-action-btn">Resume</button>
+      </div>
+      <div class="chatbot-input-area">
+        <input type="text" id="chatbotInput" placeholder="Ask me anything..." autocomplete="off">
+        <button class="chatbot-send-btn" id="chatbotSendBtn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+    <button class="chatbot-toggle-btn" id="chatbotToggleBtn">
+      <svg viewBox="0 0 100 100" width="42" height="42" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 20C80 20 95 40 95 40s-15 20-45 20-45-20-45-20 15-20 45-20z" fill="#fff" />
+        <rect x="30" y="32" width="40" height="16" rx="8" fill="#1e293b" />
+        <circle cx="40" cy="40" r="3" fill="#00e5ff" />
+        <circle cx="60" cy="40" r="3" fill="#00e5ff" />
+        <path
+          d="M25 65c0 0 10-10 25-10s25 10 25 20-10 15-25 15c-5 0-10-2-15-5 0 0-10 10-10 10s3-10 3-10c-2-5-3-10-3-20z"
+          fill="#fff" />
+        <circle cx="40" cy="73" r="3" fill="#1e293b" />
+        <circle cx="50" cy="73" r="3" fill="#1e293b" />
+        <circle cx="60" cy="73" r="3" fill="#1e293b" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="logo">Mohammed Saad</div>
+        <div class="social-links-home">
+          <a href="https://github.com/Mohammed-Saad-786" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-saad-tech" target="_blank"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/share/1CtLjiUfZw/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://t.me/Mohammed_Saad_786" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Mohammed Saad. All Rights Reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><i class="fas fa-map-marker-alt"
+            style="margin-right: 5px;"></i>H-No: 2-1/1/B, Chandanagar, Serilingampally, Hyderabad, Telangana, 500050</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Typing Animation - Cursor ONLY in H1
+    document.addEventListener("DOMContentLoaded", function () {
+      const heroTitle = document.querySelector(".hero-content h1");
+      const heroSubtitle = document.querySelector(".hero-content h2");
+
+      // Texts for H2 repeating animation
+      const subtitleTexts = [
+        "Computer Science Student",
+        "Python Developer",
+        "Problem Solver",
+        "Tech Enthusiast"
+      ];
+
+      let subtitleIndex = 0;
+      let subtitleCharIndex = 0;
+      let isDeletingSubtitle = false;
+      let subtitleTimeout;
+
+      // Type name first (one-time only) - WITH CURSOR in H1
+      if (heroTitle) {
+        const spanElement = heroTitle.querySelector("span");
+        if (spanElement) {
+          const text = spanElement.textContent;
+          spanElement.textContent = "";
+          spanElement.classList.add("typing-text");
+
+          let i = 0;
+          function typeWriter() {
+            if (i < text.length) {
+              spanElement.textContent += text.charAt(i);
+              i++;
+              setTimeout(typeWriter, 100);
+            } else {
+              setTimeout(() => {
+                spanElement.classList.remove("typing-text");
+                startSubtitleTyping();
+              }, 1000);
+            }
+          }
+          setTimeout(typeWriter, 1000);
+        }
+      }
+
+      // H2 Repeating Typing Function - WITHOUT CURSOR
+      function startSubtitleTyping() {
+        if (!heroSubtitle) return;
+
+        function typeSubtitle() {
+          const currentText = subtitleTexts[subtitleIndex];
+
+          if (!isDeletingSubtitle) {
+            if (subtitleCharIndex < currentText.length) {
+              heroSubtitle.textContent = currentText.substring(0, subtitleCharIndex + 1);
+              subtitleCharIndex++;
+              subtitleTimeout = setTimeout(typeSubtitle, 100);
+            } else {
+              subtitleTimeout = setTimeout(() => {
+                isDeletingSubtitle = true;
+                subtitleTimeout = setTimeout(typeSubtitle, 500);
+              }, 2000);
+            }
+          } else {
+            if (subtitleCharIndex > 0) {
+              heroSubtitle.textContent = currentText.substring(0, subtitleCharIndex - 1);
+              subtitleCharIndex--;
+              subtitleTimeout = setTimeout(typeSubtitle, 50);
+            } else {
+              isDeletingSubtitle = false;
+              subtitleIndex = (subtitleIndex + 1) % subtitleTexts.length;
+              subtitleCharIndex = 0;
+              heroSubtitle.textContent = "";
+              subtitleTimeout = setTimeout(() => {
+                subtitleTimeout = setTimeout(typeSubtitle, 300);
+              }, 300);
+            }
+          }
+        }
+
+        heroSubtitle.textContent = "";
+        subtitleTimeout = setTimeout(typeSubtitle, 500);
+      }
+
+      window.addEventListener("beforeunload", function () {
+        if (subtitleTimeout) {
+          clearTimeout(subtitleTimeout);
+        }
+      });
+
+      // Mobile menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      if (hamburger) {
+        hamburger.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+        });
+      }
+
+      // Close mobile menu when clicking on links
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", function () {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+
+            if (window.innerWidth <= 968) {
+              navLinks.classList.remove("active");
+            }
+          }
+        });
+      });
+
+      // FormSubmit AJAX submission
+      document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const form = this;
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        if (name && email && message) {
+          submitBtn.disabled = true;
+          submitBtn.innerText = "Sending...";
+
+          const ajaxUrl = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
+
+          fetch(ajaxUrl, {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              subject: subject,
+              message: message,
+              _captcha: "false"
+            })
+          })
+            .then(response => {
+              if (!response.ok) throw new Error("Network error");
+              return response.json();
+            })
+            .then(data => {
+              showMessage(`Thank you ${name}! Your message has been sent successfully.`, "success");
+              form.reset();
+              submitBtn.disabled = false;
+              submitBtn.innerText = "Send Message";
+            })
+            .catch(error => {
+              // If AJAX fails (usually because of file:// protocol CORS), fallback to standard form submission
+              form.submit();
+            });
+        }
+      });
+
+      function showMessage(message, type) {
+        let messagesDiv = document.getElementById("formMessages");
+        messagesDiv.innerHTML = `
+      <div class="message ${type}-message">
+        ${message}
+      </div>
+    `;
+        setTimeout(() => {
+          messagesDiv.innerHTML = "";
+        }, 5000);
+      }
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".skill-category, .project-card, .about-content > *").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(el);
+      });
+
+      // Header background on scroll
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(255, 255, 255, 0.98)";
+          header.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)";
+        } else {
+          header.style.background = "rgba(255, 255, 255, 0.95)";
+          header.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)";
+        }
+      });
+
+      // Skills counter animation initialization
+      function animateSkills() {
+        const skills = document.querySelectorAll(".skill-item");
+        skills.forEach((skill, index) => {
+          skill.style.animationDelay = `${index * 0.1}s`;
+        });
+      }
+
+      window.addEventListener("load", function () {
+        animateSkills();
+        if (window.innerWidth <= 968) {
+          document.querySelector(".nav-links").classList.remove("active");
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 968) {
+          navLinks.classList.remove("active");
+        }
+      });
+    });
+
+    // Chatbot Logic
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleBtn = document.getElementById('chatbotToggleBtn');
+      const chatWindow = document.getElementById('chatbotWindow');
+      const closeBtn = document.getElementById('closeChatBtn');
+      const sendBtn = document.getElementById('chatbotSendBtn');
+      const chatInput = document.getElementById('chatbotInput');
+      const messagesContainer = document.getElementById('chatbotMessages');
+      const quickActionBtns = document.querySelectorAll('.quick-action-btn');
+
+      let isChatOpen = false;
+      let hasWelcomed = false;
+
+      function toggleChat() {
+        isChatOpen = !isChatOpen;
+        if (isChatOpen) {
+          chatWindow.classList.add('active');
+          toggleBtn.innerHTML = '<i class="fas fa-times"></i>';
+          if (!hasWelcomed) {
+            setTimeout(() => {
+              botTyping(sendBotResponse, "Hi there! I'm Ask Saad AI. I can tell you about Saad's skills, projects, internships, or how to contact him. How can I help you today?");
+              hasWelcomed = true;
+            }, 500);
+          }
+        } else {
+          chatWindow.classList.remove('active');
+          toggleBtn.innerHTML = '<svg viewBox="0 0 100 100" width="42" height="42" xmlns="http://www.w3.org/2000/svg"><path d="M50 20C80 20 95 40 95 40s-15 20-45 20-45-20-45-20 15-20 45-20z" fill="#fff"/><rect x="30" y="32" width="40" height="16" rx="8" fill="#1e293b"/><circle cx="40" cy="40" r="3" fill="#00e5ff"/><circle cx="60" cy="40" r="3" fill="#00e5ff"/><path d="M25 65c0 0 10-10 25-10s25 10 25 20-10 15-25 15c-5 0-10-2-15-5 0 0-10 10-10 10s3-10 3-10c-2-5-3-10-3-20z" fill="#fff"/><circle cx="40" cy="73" r="3" fill="#1e293b"/><circle cx="50" cy="73" r="3" fill="#1e293b"/><circle cx="60" cy="73" r="3" fill="#1e293b"/></svg>';
+        }
+      }
+
+      toggleBtn.addEventListener('click', toggleChat);
+      closeBtn.addEventListener('click', toggleChat);
+
+      function handleSend() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        appendMessage(text, 'user');
+        chatInput.value = '';
+
+        const response = getBotResponse(text);
+        botTyping(sendBotResponse, response);
+      }
+
+      sendBtn.addEventListener('click', handleSend);
+      chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleSend();
+      });
+
+      quickActionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const text = btn.innerText;
+          appendMessage(text, 'user');
+          const response = getBotResponse(text);
+          botTyping(sendBotResponse, response);
+        });
+      });
+
+      function appendMessage(text, sender) {
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add('chat-msg', sender);
+        msgDiv.innerHTML = text;
+        messagesContainer.appendChild(msgDiv);
+        scrollToBottom();
+      }
+
+      function botTyping(callback, responseText) {
+        const typingDiv = document.createElement('div');
+        typingDiv.classList.add('typing-indicator');
+        typingDiv.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+        typingDiv.id = 'typingIndicator';
+        messagesContainer.appendChild(typingDiv);
+        scrollToBottom();
+
+        setTimeout(() => {
+          typingDiv.remove();
+          callback(responseText);
+        }, 1200);
+      }
+
+      function sendBotResponse(text) {
+        appendMessage(text, 'bot');
+      }
+
+      function scrollToBottom() {
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      function getBotResponse(input) {
+        const lowerInput = input.toLowerCase();
+
+        const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+        const rules = [
+          {
+            keywords: ['hi', 'hello', 'hey', 'greetings', 'morning', 'afternoon'],
+            responses: [
+              "Hey there 👋 I'm Ask Saad AI.",
+              "Welcome to Mohammed Saad’s portfolio!",
+              "Hi! I can help you explore projects, skills, and internships.",
+              "Hello 👨💻 Ask me anything about Saad’s work."
+            ]
+          },
+          {
+            keywords: ['skill', 'skills', 'tech stack', 'technologies', 'tools', 'programming', 'languages'],
+            responses: [
+              "My top skills include Python, React.js, FastAPI, JavaScript, HTML, CSS, SQLAlchemy, Tailwind CSS, MongoDB, Machine Learning, AI, LangChain, and Gradio. 🛠️",
+              "I'm proficient in a wide range of technologies! Notably Python, React, FastAPI, and Machine Learning. 💻",
+              "Tech Stack? I've got you covered: Python, React.js, FastAPI, JS/HTML/CSS, MongoDB, and AI tools like LangChain and Gradio. 🚀"
+            ]
+          },
+          {
+            keywords: ['project', 'projects', 'portfolio', 'work', 'built', 'developed'],
+            responses: [
+              "🚀 <b>Featured Projects:</b><br>• <b>AI-Driven CRM Engine</b> – Smart lead management and scoring platform built with FastAPI and React.<br>• <b>LearnMate AI Coach</b> – AI-powered roadmap assistant using LLM guidance.<br>• <b>BragBoard</b> – Employee recognition and peer appreciation platform.<br><br>View all projects: <a href='https://github.com/Mohammed-Saad-786' target='_blank'>@Mohammed-Saad-786</a>",
+              "I've built several exciting projects! 🌟<br>• <b>AI-Driven CRM Engine</b> – Smart lead management and scoring platform built with FastAPI and React.<br>• <b>LearnMate AI Coach</b> – AI-powered roadmap assistant using LLM guidance.<br>• <b>BragBoard</b> – Employee recognition and peer appreciation platform.<br><br>View all projects: <a href='https://github.com/Mohammed-Saad-786' target='_blank'>@Mohammed-Saad-786</a>"
+            ]
+          },
+          {
+            keywords: ['intern', 'internship', 'internships', 'experience', 'job', 'work experience'],
+            responses: [
+              "I've completed several great internships:<br>- <b>Infosys Springboard</b> (Python Full-Stack Intern)<br>- <b>Edunet Foundation</b> (AI with IBM SkillsBuild)<br>- <b>VOIS/Vodafone</b> (AICTE Intern)",
+              "My professional experience includes internships at <b>Infosys Springboard</b>, <b>Edunet Foundation</b>, and <b>VOIS/Vodafone</b>! 💼",
+              "I've had the opportunity to intern as a Python Full-Stack Intern at <b>Infosys Springboard</b>, an AI intern at <b>Edunet Foundation</b>, and at <b>VOIS/Vodafone</b>! 🚀"
+            ]
+          },
+          {
+            keywords: ['schooling', 'school', '10th', '12th', 'high school'],
+            responses: [
+              "I completed my schooling at <b>Gowtham Model School (GMS)</b>. 🏫 I graduated with a stellar <b>98%</b> in <b>2021</b>!"
+            ]
+          },
+          {
+            keywords: ['education', 'college', 'university', 'degree', 'study', 'b.tech', 'bachelor'],
+            responses: [
+              "Here is my educational background 🎓:<br><br>• <b>B.Tech in Computer Science & Engineering</b><br>Marri Laxman Reddy Institute of Technology and Management<br>CGPA: 8.99 (2023 - 2027)<br><br>• <b>Intermediate (Secondary Education)</b><br>The Narayana Group<br>Percentage: 95% (2021 - 2023)<br><br>• <b>Schooling</b><br>Gowtham Model School (GMS)<br>Percentage: 100% (Completed 2021)"
+            ]
+          },
+          {
+            keywords: ['contact', 'email', 'reach', 'hire', 'phone', 'call', 'linkedin', 'github'],
+            responses: [
+              `You can reach out to me via email at <b>555mohammedsaad@gmail.com</b> or call <b>+91 9963058044</b>.<br><br>
+   🔗 GitHub: <a href="https://github.com/Mohammed-Saad-786" target="_blank">github.com/Mohammed-Saad-786</a><br>
+   💼 LinkedIn: <a href="https://www.linkedin.com/in/mohammed-saad-tech/" target="_blank">linkedin.com/in/mohammed-saad-tech</a>`,
+
+              `Looking to connect? 📞<br><br>
+   📧 Email: <b>555mohammedsaad@gmail.com</b><br>
+   📱 Phone: <b>+91 9963058044</b><br>
+   🔗 GitHub: <a href="https://github.com/Mohammed-Saad-786" target="_blank">Visit My GitHub</a><br>
+   💼 LinkedIn: <a href="https://www.linkedin.com/in/mohammed-saad-tech/" target="_blank">Connect on LinkedIn</a>`,
+
+              `I'd love to hear from you! 🤝<br><br>
+   📧 <b>555mohammedsaad@gmail.com</b><br>
+   📞 <b>+91 9963058044</b><br>
+   🚀 GitHub: <a href="https://github.com/Mohammed-Saad-786" target="_blank">Mohammed-Saad-786</a><br>
+   💼 LinkedIn: <a href="https://www.linkedin.com/in/mohammed-saad-tech/" target="_blank">mohammed-saad-tech</a>`
+            ]
+          },
+          {
+            keywords: ['resume', 'cv', 'download'],
+            responses: [
+              "You can download my latest Resume by clicking the 'Download Resume' button in the Hero section at the very top of the page! 📄"
+            ]
+          },
+          {
+            keywords: ['github', 'code', 'repo'],
+            responses: [
+              "Check out my code on GitHub: <a href='https://github.com/Mohammed-Saad-786' target='_blank'>@Mohammed-Saad-786</a> 🐙"
+            ]
+          },
+          {
+            keywords: ['linkedin', 'profile'],
+            responses: [
+              "Connect with me on LinkedIn: <a href='https://www.linkedin.com/in/mohammed-saad-tech' target='_blank'>Mohammed Saad</a> 💼"
+            ]
+          },
+          {
+            keywords: ['certificate', 'certificates', 'certifications', 'badge', 'badges'],
+            responses: [
+              "I hold certifications from Infosys Springboard, Cisco Networking Academy, Great Learning, Skill Course, Oracle, IBM, AWS, ServiceNow, and Pearson! Check out the Certifications section to see my digital badges! 🏆"
+            ]
+          }
+        ];
+
+        for (let rule of rules) {
+          for (let kw of rule.keywords) {
+            const regex = new RegExp("\\b" + kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "\\b", "i");
+            if (regex.test(lowerInput)) {
+              return getRandom(rule.responses);
+            }
+          }
+        }
+
+        const fallbackResponses = [
+          "I may not have information about that yet 😅<br><br>Try asking me about:<br>• Projects<br>• Skills<br>• Internships<br>• Certifications<br>• Contact",
+          "Hmm, I'm not entirely sure about that! 🤔<br><br>Try asking me about:<br>• Projects<br>• Skills<br>• Internships<br>• Certifications<br>• Contact",
+          "That's a great question, but I don't have the answer right now. 🤷‍♂️<br><br>Try asking me about:<br>• Projects<br>• Skills<br>• Internships<br>• Certifications<br>• Contact"
+        ];
+
+        return getRandom(fallbackResponses);
+      }
+    });
+    // Real-time English to Urdu logo toggle
+    setInterval(() => {
+      const logoText = document.querySelector('#headerLogoText i');
+      if (logoText) {
+        if (logoText.innerText.toUpperCase() === 'MOHAMMED') {
+          logoText.innerText = 'محمد';
+        } else {
+          logoText.innerText = 'Mohammed';
+        }
+      }
+    }, 2000);
+
+    // Contact Form Submission Logic (AJAX)
+    document.addEventListener("DOMContentLoaded", function () {
+      const contactForm = document.getElementById("contactForm");
+      const formMessages = document.getElementById("formMessages");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          
+          const submitBtn = contactForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerText;
+          submitBtn.innerText = "Sending...";
+          submitBtn.disabled = true;
+
+          const formData = new FormData(contactForm);
+
+          fetch("https://formspree.io/f/mgodpqzv", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.ok) {
+              formMessages.innerHTML = "<div style='color: #10b981; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 5px; margin-bottom: 15px;'>Message sent successfully! I will get back to you soon.</div>";
+              contactForm.reset();
+            } else {
+              let errorMsg = "Oops! Something went wrong. Please try again.";
+              if (data.errors && data.errors.length > 0) {
+                errorMsg = data.errors.map(err => err.message).join(", ");
+              }
+              formMessages.innerHTML = "<div style='color: #ef4444; padding: 10px; background: rgba(239, 68, 68, 0.1); border-radius: 5px; margin-bottom: 15px;'>" + errorMsg + "</div>";
+            }
+          })
+          .catch(error => {
+            formMessages.innerHTML = "<div style='color: #ef4444; padding: 10px; background: rgba(239, 68, 68, 0.1); border-radius: 5px; margin-bottom: 15px;'>Oops! There was a problem submitting your form. Make sure you are connected to the internet.</div>";
+          })
+          .finally(() => {
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
