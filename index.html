@@ -1537,6 +1537,44 @@
       z-index: 10000;
       font-family: 'Inter', sans-serif;
     }
+    .chatbot-tooltip {
+      position: absolute;
+      bottom: 75px;
+      right: 0;
+      background: white;
+      color: #333;
+      padding: 10px 15px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      animation: tooltipFadeInOut 6s ease-in-out forwards 1s;
+      border: 1px solid #e2e8f0;
+    }
+
+    .chatbot-tooltip::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      right: 25px;
+      width: 12px;
+      height: 12px;
+      background: white;
+      transform: rotate(45deg);
+      border-bottom: 1px solid #e2e8f0;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    @keyframes tooltipFadeInOut {
+      0% { opacity: 0; transform: translateY(10px); }
+      10% { opacity: 1; transform: translateY(0); }
+      85% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-10px); display: none; }
+    }
+
 
     .chatbot-toggle-btn {
       width: 70px;
@@ -2444,6 +2482,11 @@
         <div class="project-card">
           <div class="project-image">
             <img src="images/crm2.png" alt="Automated File Organizer" />
+             <!-- GitHub Icon -->
+            <a href="https://github.com/Mohammed-Saad-786/Customer_Relationship_Management_System" target="_blank"
+              class="github-link">
+              <i class="fab fa-github"></i>
+            </a>
           </div>
           <div class="project-content">
             <h3>AI-Driven Customer Relationship Management (CRM) Engine
@@ -2465,7 +2508,7 @@
             <div class="project-links">
               <a href="https://github.com/Mohammed-Saad-786/Customer_Relationship_Management_System" target="_blank"
                 class="github-link">
-                <i class="fab fa-github"></i>
+                <i class="fab fa-github"></i> GitHub
               </a>
             </div>
           </div>
@@ -2501,7 +2544,11 @@
 
             <div class="project-links">
               <a href="https://mohd-saad-learnmate-ai-coach.hf.space/">🔗 Watch Demo</a>
+              <a href="https://github.com/Mohammed-Saad-786/learnmate-ai-coach.git" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+              </a>
             </div>
+            
 
           </div>
 
@@ -2534,6 +2581,12 @@
               <span class="tech-tag">SQLAlchemy</span>
               <span class="tech-tag">JWT Auth</span>
               <span class="tech-tag">Pydantic</span>
+            </div>
+            
+            <div class="project-links">
+              <a href="https://github.com/Mohammed-Saad-786/BragBoard.git" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+              </a>
             </div>
 
 
@@ -2623,6 +2676,8 @@
 
   <!-- Portfolio Chatbot Widget -->
   <div class="chatbot-widget-container">
+    <!-- ADD THIS ONE LINE -->
+    <div class="chatbot-tooltip">Hi, I AM Ask Saad AI, How can I help u?</div>
     <div class="chatbot-window" id="chatbotWindow">
       <div class="chatbot-header">
         <div class="chatbot-header-info">
