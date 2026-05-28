@@ -99,7 +99,7 @@ The website is designed with a modern UI/UX approach featuring responsive layout
 
 <div align="center">
 
-<img src="YOUR_SCREENSHOT_LINK_HERE" alt="Portfolio Preview" width="100%" />
+<img src="/images/preiview.png" alt="Portfolio Preview" width="100%" />
 
 </div>
 
