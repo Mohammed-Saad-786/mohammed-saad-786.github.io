@@ -14,6 +14,14 @@
 ![Last Commit](https://img.shields.io/github/last-commit/Mohammed-Saad-786/portfolio?style=for-the-badge)
 ![Top Language](https://img.shields.io/github/languages/top/Mohammed-Saad-786/portfolio?style=for-the-badge&color=yellow)
 
+<div align="center">
+
+<img height="170" src="https://github-readme-stats-salesp07.vercel.app/api?username=Mohammed-Saad-786&show_icons=true&theme=tokyonight&hide_border=true"/>
+
+<img height="170" src="https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=Mohammed-Saad-786&layout=compact&theme=tokyonight&hide_border=true"/>
+
+</div>
+
 </div>
 
 ---
@@ -32,6 +40,10 @@ This portfolio showcases my:
 The website is designed with a modern UI/UX approach featuring responsive layouts, smooth animations, interactive sections, and an integrated AI chatbot experience.
 
 > ⚡ This portfolio is continuously evolving with new projects, certifications, and improvements.
+
+## 💡 Why This Portfolio?
+
+This portfolio was built to combine clean UI/UX, interactive experiences, and modern frontend development practices while showcasing my projects, certifications, and technical journey.
 
 ---
 
@@ -94,13 +106,15 @@ The website is designed with a modern UI/UX approach featuring responsive layout
 </div>
 
 ---
+![Website](https://img.shields.io/website?down_color=red&down_message=offline&label=Portfolio&style=for-the-badge&up_color=3b82f6&up_message=online&url=https%3A%2F%2Fmohammed-saad-786.github.io%2F)
 
 # 📸 Portfolio Preview
 
 <div align="center">
 
-<img src="/images/preiview.png" alt="Portfolio Preview" width="100%" />
-
+<a href="https://mohammed-saad-786.github.io/" target="_blank">
+  <img src="./images/preiview.png" alt="Portfolio Preview" width="100%" />
+</a>
 </div>
 
 ---
@@ -149,6 +163,7 @@ portfolio/
 
 ---
 
+
 # 📫 Connect With Me
 
 <div align="center">
@@ -174,6 +189,8 @@ portfolio/
 ### ⭐ If you found this project helpful or inspiring, consider giving it a star!
 
 Engineered and designed by Mohammed Saad
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=3b82f6&height=120&section=footer"/>
 
 </div>
 ```
