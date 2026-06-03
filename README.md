@@ -3,7 +3,7 @@
 
 # 👨‍💻 Mohammed Saad — Personal Portfolio
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=3B82F6&center=true&vCenter=true&width=700&lines=Frontend+Developer;Python+Developer;AI+%26+Automation+Enthusiast;Building+Modern+Web+Experiences" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=44&pause=1000&color=3B82F6&center=true&vCenter=true&width=900&lines=Frontend+Developer;Python+Developer;AI+%26+Automation+Enthusiast;Building+Modern+Web+Experiences" alt="Typing SVG" />
 
 <br/>
 
