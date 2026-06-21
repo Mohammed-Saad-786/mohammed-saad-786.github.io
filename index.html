@@ -1213,6 +1213,107 @@
       margin: 0;
     }
 
+        /* Hero Style Mail Animation on top of contact form */
+    .contact-form-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-mail-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      height: 60px;
+      width: 100%;
+    }
+
+    .mail-scene {
+      position: relative;
+      width: 80px;
+      height: 50px;
+    }
+
+    .mail-envelope {
+      position: absolute;
+      bottom: 0;
+      width: 80px;
+      height: 50px;
+      background: #cbd5e1;
+      border-radius: 4px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      z-index: 0;
+    }
+
+    /* Front flaps */
+    .mail-envelope::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-left: 40px solid #f8fafc;
+      border-right: 40px solid #f1f5f9;
+      border-bottom: 30px solid #e2e8f0;
+      border-top: 20px solid transparent;
+      z-index: 3;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    .mail-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-top: 25px solid #ef4444; /* Red flap */
+      transform-origin: top;
+      animation: closeFlap 4s infinite;
+    }
+
+    .mail-paper {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      width: 60px;
+      height: 40px;
+      background: #ffffff;
+      border-radius: 2px;
+      z-index: 2; 
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      padding: 6px;
+      box-sizing: border-box;
+      animation: dropPaper 4s infinite;
+    }
+
+    .mail-line {
+      width: 100%;
+      height: 3px;
+      background: #e2e8f0;
+      border-radius: 2px;
+      margin-bottom: 5px;
+    }
+
+    .mail-line.short {
+      width: 60%;
+    }
+
+    @keyframes dropPaper {
+      0% { transform: translateY(-70px); opacity: 0; }
+      10% { transform: translateY(-70px); opacity: 1; }
+      25% { transform: translateY(0); opacity: 1; }
+      26%, 100% { transform: translateY(0); opacity: 0; } /* Message disappears after dropping */
+    }
+
+    @keyframes closeFlap {
+      0%, 25% { transform: rotateX(180deg); z-index: 1; }
+      35%, 100% { transform: rotateX(0deg); z-index: 4; }
+    }
+    
     .contact-form {
       background: #f8fafc;
       padding: 2rem;
@@ -2645,33 +2746,48 @@
             </div>
           </div>
         </div>
-        <div class="contact-form">
-          <div id="formMessages"></div>
 
-          <form id="contactForm" action="https://formspree.io/f/mgodpqzv" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your Name" required />
+                <div class="contact-form-column">
+          <div class="hero-mail-container">
+            <div class="mail-scene">
+              <div class="mail-paper">
+                <div class="mail-line"></div>
+                <div class="mail-line short"></div>
+              </div>
+              <div class="mail-envelope"></div>
+              <div class="mail-flap"></div>
             </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Your Email" required />
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="Subject" required />
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-            </div>
+          </div>
 
-            <button type="submit" class="btn">Send Message</button>
-          </form>
+          <div class="contact-form">
+            <div id="formMessages"></div>
+
+            <form id="contactForm" action="https://formspree.io/f/mgodpqzv" method="POST">
+              <input type="hidden" name="_captcha" value="false">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+              </div>
+
+              <button type="submit" class="btn">Send Message</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+  
   </section>
 
   <!-- Portfolio Chatbot Widget -->
