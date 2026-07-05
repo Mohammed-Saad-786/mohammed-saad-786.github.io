@@ -2067,37 +2067,67 @@
     body, header, .card, .experience-item, .education-item, .skill-category, .project-card, .certification-item, input, textarea, .chatbot-window, footer {
       transition: background 0.4s ease, background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
     }
-    body.dark-theme {
-      background: var(--bg-primary);
+    
+    /* 1. Force the Main Backgrounds */
+    body.dark-theme,
+    body.dark-theme section,
+    body.dark-theme header,
+    body.dark-theme footer,
+    body.dark-theme #home {
+      background-color: #0B1120 !important;
+      color: #ffffff !important;
     }
-    body.dark-theme p, body.dark-theme li, body.dark-theme .date, body.dark-theme .about-text {
-      color: #ffffff;
+    
+    /* 2. Force the Cards to be Dark Glass */
+    body.dark-theme .experience-item,
+    body.dark-theme .education-item,
+    body.dark-theme .certification-item,
+    body.dark-theme .skill-category,
+    body.dark-theme .project-card,
+    body.dark-theme .contact-form,
+    body.dark-theme .chatbot-window {
+      background-color: rgba(30, 41, 59, 0.7) !important;
+      backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
-    body.dark-theme .nav-links a { color: var(--text-primary); }
-    body.dark-theme .nav-links a:hover { color: #8B5CF6; }
+    
+    /* 3. Force all Text to White */
+    body.dark-theme p,
+    body.dark-theme li,
+    body.dark-theme .date,
+    body.dark-theme .about-text,
+    body.dark-theme h1,
+    body.dark-theme h2,
+    body.dark-theme h3,
+    body.dark-theme h4 {
+      color: #ffffff !important;
+    }
+
+    /* 4. Fix specific small elements */
+    body.dark-theme .tech-tag {
+      background-color: #1E293B !important;
+      color: #ffffff !important;
+    }
+    body.dark-theme .nav-links a { color: #ffffff !important; }
+    body.dark-theme .nav-links a:hover { color: #8B5CF6 !important; }
+    
     body.dark-theme .hero-content h1 span {
-      background: linear-gradient(135deg, #7C3AED, #3B82F6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: linear-gradient(135deg, #7C3AED, #3B82F6) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
     }
-    body.dark-theme #home::before {
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+
+    body.dark-theme .form-group input,
+    body.dark-theme .form-group textarea,
+    body.dark-theme .chatbot-input-area input {
+      background-color: rgba(15, 23, 42, 0.6) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
-    body.dark-theme .experience-item, body.dark-theme .education-item, body.dark-theme .certification-item, body.dark-theme .skill-category, body.dark-theme .project-card, body.dark-theme .contact-form, body.dark-theme .chatbot-window {
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border-color);
-    }
-    body.dark-theme .experience-item:hover, body.dark-theme .education-item:hover, body.dark-theme .certification-item:hover, body.dark-theme .skill-category:hover, body.dark-theme .project-card:hover {
-      box-shadow: 0 10px 40px var(--card-shadow-hover);
-      border-color: rgba(139, 92, 246, 0.3);
-    }
-    body.dark-theme .form-group input, body.dark-theme .form-group textarea, body.dark-theme .chatbot-input-area input {
-      background: rgba(15, 23, 42, 0.6);
-      color: var(--text-primary);
-    }
-    body.dark-theme .form-group input:focus, body.dark-theme .form-group textarea:focus, body.dark-theme .chatbot-input-area input:focus {
-      border-color: #8B5CF6;
-      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+    body.dark-theme .form-group input:focus,
+    body.dark-theme .form-group textarea:focus {
+      border-color: #8B5CF6 !important;
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
     }
     
     /* Toggle Button Styles */
@@ -2119,6 +2149,7 @@
     .theme-toggle-btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(139, 92, 246, 0.3); }
     .theme-toggle-btn i { transition: transform 0.5s; }
     body.dark-theme .theme-toggle-btn i { transform: rotate(360deg); }
+        
   </style>
 </head>
 
