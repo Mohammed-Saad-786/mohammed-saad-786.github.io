@@ -12,6 +12,56 @@
   <text x='50%' y='58%' font-size='52' text-anchor='middle' fill='%238b5cf6' font-family='Arial' font-weight='bold'>MS</text>
 </svg>">
   <style>
+        /* Theme Variables */
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-hero: #2c3e50;
+      --bg-footer: #1e293b;
+      --card-bg: #ffffff;
+      --text-primary: #333333;
+      --text-heading: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --input-border: #cbd5e1;
+      --nav-bg: rgba(255, 255, 255, 0.95);
+      --nav-shadow: rgba(0, 0, 0, 0.1);
+      --card-shadow: rgba(0, 0, 0, 0.1);
+      --card-shadow-hover: rgba(0, 0, 0, 0.15);
+      --toggle-bg: #f1f5f9;
+      --toggle-color: #475569;
+      --chat-bot-bg: #f1f5f9;
+      --chat-user-bg: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      --chat-bot-text: #334155;
+      --chat-user-text: #ffffff;
+      --btn-glow: rgba(255, 107, 107, 0.3);
+      --btn-glow-hover: rgba(255, 107, 107, 0.4);
+    }
+
+    body.dark-theme {
+      --bg-primary: #0B1120;
+      --bg-secondary: #0F172A;
+      --bg-hero: #090e1a;
+      --bg-footer: #05080f;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --text-primary: #FFFFFF;
+      --text-heading: #F8FAFC;
+      --text-muted: #FFFFFF;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --input-border: rgba(255, 255, 255, 0.1);
+      --nav-bg: rgba(11, 17, 32, 0.85);
+      --nav-shadow: rgba(0, 0, 0, 0.5);
+      --card-shadow: rgba(0, 0, 0, 0.3);
+      --card-shadow-hover: rgba(139, 92, 246, 0.15);
+      --toggle-bg: #1E293B;
+      --toggle-color: #F8FAFC;
+      --chat-bot-bg: #1E293B;
+      --chat-user-bg: linear-gradient(135deg, #7C3AED, #3B82F6);
+      --chat-bot-text: #E2E8F0;
+      --chat-user-text: #ffffff;
+      --btn-glow: rgba(124, 58, 237, 0.4);
+      --btn-glow-hover: rgba(124, 58, 237, 0.6);
+    }
     /* Reset and Base Styles */
     * {
       margin: 0;
@@ -2013,6 +2063,62 @@
         transform: translateY(0);
       }
     }
+        /* Premium Dark Mode Specific Overrides */
+    body, header, .card, .experience-item, .education-item, .skill-category, .project-card, .certification-item, input, textarea, .chatbot-window, footer {
+      transition: background 0.4s ease, background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    body.dark-theme {
+      background: var(--bg-primary);
+    }
+    body.dark-theme p, body.dark-theme li, body.dark-theme .date, body.dark-theme .about-text {
+      color: #ffffff;
+    }
+    body.dark-theme .nav-links a { color: var(--text-primary); }
+    body.dark-theme .nav-links a:hover { color: #8B5CF6; }
+    body.dark-theme .hero-content h1 span {
+      background: linear-gradient(135deg, #7C3AED, #3B82F6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    body.dark-theme #home::before {
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+    }
+    body.dark-theme .experience-item, body.dark-theme .education-item, body.dark-theme .certification-item, body.dark-theme .skill-category, body.dark-theme .project-card, body.dark-theme .contact-form, body.dark-theme .chatbot-window {
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+    }
+    body.dark-theme .experience-item:hover, body.dark-theme .education-item:hover, body.dark-theme .certification-item:hover, body.dark-theme .skill-category:hover, body.dark-theme .project-card:hover {
+      box-shadow: 0 10px 40px var(--card-shadow-hover);
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+    body.dark-theme .form-group input, body.dark-theme .form-group textarea, body.dark-theme .chatbot-input-area input {
+      background: rgba(15, 23, 42, 0.6);
+      color: var(--text-primary);
+    }
+    body.dark-theme .form-group input:focus, body.dark-theme .form-group textarea:focus, body.dark-theme .chatbot-input-area input:focus {
+      border-color: #8B5CF6;
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+    }
+    
+    /* Toggle Button Styles */
+    .theme-toggle-btn {
+      background: var(--toggle-bg);
+      color: var(--toggle-color);
+      border: 1px solid var(--border-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+      margin-left: 1rem;
+    }
+    .theme-toggle-btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(139, 92, 246, 0.3); }
+    .theme-toggle-btn i { transition: transform 0.5s; }
+    body.dark-theme .theme-toggle-btn i { transform: rotate(360deg); }
   </style>
 </head>
 
@@ -2031,6 +2137,12 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact" class="nav-btn">Contact</a></li>
+          <li>
+            <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+        
         </ul>
 
         <!-- Right Corner Text Logo -->
@@ -3355,6 +3467,33 @@
           });
         });
       }
+    });
+  </script>
+    <!-- Dark Mode Toggle Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const themeToggleBtn = document.getElementById("themeToggle");
+      const themeIcon = themeToggleBtn.querySelector("i");
+      
+      const currentTheme = localStorage.getItem("theme");
+      if (currentTheme === "dark") {
+        document.body.classList.add("dark-theme");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+      }
+
+      themeToggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
+        if (document.body.classList.contains("dark-theme")) {
+          localStorage.setItem("theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+        } else {
+          localStorage.setItem("theme", "light");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+        }
+      });
     });
   </script>
 </body>
