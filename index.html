@@ -2149,6 +2149,26 @@
     .theme-toggle-btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(139, 92, 246, 0.3); }
     .theme-toggle-btn i { transition: transform 0.5s; }
     body.dark-theme .theme-toggle-btn i { transform: rotate(360deg); }
+
+        /* Mobile-Only Toggle Button Rules */
+    .mobile-toggle { 
+      display: none !important; 
+    }
+    
+    @media (max-width: 968px) {
+      .desktop-toggle { 
+        display: none !important; 
+      }
+      .mobile-toggle { 
+        display: flex !important;
+        position: absolute !important;
+        left: 170px !important; /* Puts it directly next to "Mohammed" */
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        margin: 0 !important;
+        z-index: 1005;
+      }
+    }
         
   </style>
 </head>
@@ -2184,6 +2204,11 @@
         <div class="hamburger">
           <i class="fas fa-bars"></i>
         </div>
+        <!-- Mobile Toggle Button (Only shows on phones) -->
+        <button id="themeToggleMobile" class="theme-toggle-btn mobile-toggle" aria-label="Toggle Dark Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+
       </nav>
     </div>
   </header>
@@ -3525,6 +3550,28 @@
           themeIcon.classList.add("fa-moon");
         }
       });
+    });
+  </script>
+    <script>
+    // Make the mobile button trigger the dark mode change
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileBtn = document.getElementById("themeToggleMobile");
+      const desktopBtn = document.getElementById("themeToggle");
+      
+      if(mobileBtn && desktopBtn) {
+        mobileBtn.addEventListener("click", () => {
+          desktopBtn.click(); // Secretly clicks the main button
+          // Keep the mobile icon synced
+          const mobileIcon = mobileBtn.querySelector("i");
+          if (document.body.classList.contains("dark-theme")) {
+            mobileIcon.classList.remove("fa-moon");
+            mobileIcon.classList.add("fa-sun");
+          } else {
+            mobileIcon.classList.remove("fa-sun");
+            mobileIcon.classList.add("fa-moon");
+          }
+        });
+      }
     });
   </script>
 </body>
